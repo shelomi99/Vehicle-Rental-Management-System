@@ -1,0 +1,26 @@
+.mat-headline{
+  padding-top: 20px;
+  font-size: 60px;
+  text-align: center;
+  /*height: 700px;*/
+  color: aliceblue;
+}
+.mdc-button__label{
+  background-color: gainsboro;
+  padding: 8px;
+  height: 40px;
+  width: 150px;
+  font-size: 15px;
+}
+
+body,
+html {
+  height: 100vh;
+}
+
+.bg {
+  background : url("img/vehicle.jpeg") no-repeat center fixed;
+  height: 100%;
+  height: 87vh;
+  background-size: cover;
+}

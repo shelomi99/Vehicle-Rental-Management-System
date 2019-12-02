@@ -1,0 +1,51 @@
+<div class="form-container" >
+<form #customerForm = "ngForm" (ngSubmit)="submit()">
+
+  <mat-form-field>
+    <input matInput placeholder="Full name" required [(ngModel)]="customer.name " name="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email" required [(ngModel)]="customer.email" name="email">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="National ID" matInput [(ngModel)]="customer.nationalId" name="nationalID">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <span matPrefix>+94 &nbsp;</span>
+    <input type="tel" matInput placeholder="Telephone no." required [(ngModel)]="customer.phone" name="phone">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="Select a Car" aria-label="Number" matInput [(ngModel)]="schedule.vehiclePlateNo" [matAutocomplete]="auto" name="car">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="" >
+      <mat-option *ngFor="let car of cars| async"[value]="car.plateNo " >
+        {{"  plate number :"+ car.plateNo +",make :"+ car.make +"  ,model :"+ car.model }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Pick-Up-Date"[min]="minDate"  [(ngModel)]="schedule.pickUpDate"  [matDatepicker]="simpleDate"  name="pick">
+    <mat-datepicker-toggle matSuffix [for]="simpleDate">
+    </mat-datepicker-toggle>
+    <mat-datepicker #simpleDate></mat-datepicker>
+    <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+      Enter a valid date
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Drop-off-Date" [min]="dateCtrl.value" [(ngModel)]="schedule.dropOffDate" [matDatepicker]="dateFilter" name="drop" >
+    <mat-datepicker-toggle matSuffix [for]="dateFilter">
+    </mat-datepicker-toggle>
+    <mat-datepicker #dateFilter></mat-datepicker>
+    <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+    Enter a valid date
+  </mat-error>
+  </mat-form-field>
+  <div class="submit-button">
+    <button mat-stroked-button color="primary" type="submit" >Book vehicle now</button>
+  </div>
+</form>
+</div>
+
+
+

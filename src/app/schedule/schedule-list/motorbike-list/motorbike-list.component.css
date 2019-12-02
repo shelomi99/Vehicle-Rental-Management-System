@@ -1,0 +1,16 @@
+.mat-stepper-horizontal {
+  max-width:900px;
+  margin:auto;
+}
+.mat-stepper-horizontal .mat-form-field {
+  width:100%;
+}
+mat-form-field{
+  padding-left: 50px;
+  width: 60%;
+}
+.submit-button{
+  padding-left: 400px;
+}
+
+
